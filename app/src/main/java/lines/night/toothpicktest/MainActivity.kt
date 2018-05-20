@@ -5,7 +5,7 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import lines.night.toothpicktest.toothpick.DI
 import lines.night.toothpicktest.toothpick.activity.MainModule
-import lines.night.toothpicktest.toothpick.activity.MainScope
+import lines.night.toothpicktest.toothpick.activity.MainActivityScope
 import timber.log.Timber
 import toothpick.Toothpick
 import javax.inject.Inject
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun inject() {
         Timber.i("mainTree :${
-            Toothpick.openScopes(DI.APP_SCOPE, MainScope::class.java).apply {
+            Toothpick.openScopes(DI.APP_SCOPE, MainActivityScope::class.java).apply {
                 installModules(MainModule())
                 Toothpick.inject(this@MainActivity, this)
             }
